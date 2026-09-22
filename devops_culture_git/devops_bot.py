@@ -8,5 +8,10 @@ def bot_status(name, energy):
     return f"{name} is online with {energy}% energy."
 
 
+def deploy():
+    return "Deployment started..."
+
+
 if __name__ == "__main__":
     print(bot_status("HolbieBot", 100))
+    print(deploy())
