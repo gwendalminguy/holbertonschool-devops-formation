@@ -1,4 +1,6 @@
-Output of `check-setup.sh` script:
+# Environment
+
+1. Output of `check-setup.sh` script:
 
 ```
 ========== Checking Environment ==========
@@ -15,7 +17,7 @@ Output of `check-setup.sh` script:
 Environment is ready!
 ```
 
-Output of `docker run hello-world` command:
+2. Output of `docker run hello-world` command:
 
 ```
 Unable to find image 'hello-world:latest' locally
