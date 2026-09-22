@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+"""
+A tiny DevOps maintenance bot.
+"""
+
+
+def bot_status(name, energy):
+    return f"{name} is online with {energy}% energy."
+
+
+if __name__ == "__main__":
+    print(bot_status("HolbieBot", 100))
