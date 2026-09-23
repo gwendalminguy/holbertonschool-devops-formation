@@ -28,7 +28,7 @@ This succession of commands will build the container based on a custom image to 
 | Step | Command | Purpose |
 |:----:|:--------|:--------|
 | 1 | `docker build -t hello-world .` | Builds an image based on the `Dockerfile`. |
-| 2 | `docker run -d -e SCHOOL='Holberton' -p 8080:8080 --name hello-world hello-world` | Creates a container named **hello-world** in the background listening on port **8080**, based on the `hello-world` image, and creates an environement variable named `SCHOOL`. |
+| 2 | `docker run -d -e SCHOOL='Holberton' -p 8080:8080 --name hello-world hello-world` | Creates a container named **hello-world** in the background listening on port **8080**, based on the `hello-world` image, and sets an environement variable named `SCHOOL`. |
 | 3 | `docker inspect hello-world \| jq '.[].Config.Env'` | Retrieves the environment variables of the container from its configuration, to check if `SCHOOL` is present. |
 | 4 | `docker exec hello-world bash -c 'env \| grep SCHOOL'` | Search for `SCHOOL` by reading it directly from the container itself (can also be done in interactive mode, in two steps, using the flag `-it`). |
 | 5 | `curl -s http://0.0.0.0:8080 \| jq` | Makes an HTTP request to verify the `FastAPI` application is correctly retrieving and using the environment variable. |
