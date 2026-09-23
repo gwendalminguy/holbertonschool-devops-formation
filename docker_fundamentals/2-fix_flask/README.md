@@ -1,6 +1,6 @@
 # Fix Flask
 
-The purpose of this small task was to fix an existing broken `Dockerfile`, that was missing the requirements installation, the port exposition and used the wrong file name for the application. It consists in a minimal image for a basic `Flask` application that listens on port **5000**, and that returns a simple string:
+The purpose of this small task was to fix an existing broken `Dockerfile`, that was missing the `requirements.txt` installation, the port exposition and used the wrong file name for the application. It consists in a minimal image for a basic `Flask` application that listens on port **5000**, and that returns a simple string:
 
 ```
 Hello from Flask in Docker!\n
@@ -24,8 +24,8 @@ $ docker run -d -p 5000:5000 --name flask-app flask-app
 
 ## Use
 
-To interact with the application, use the following command (`jq` is optional):
+To interact with the application, use the following command:
 
 ```bash
-curl -s http://0.0.0.0:5000 | jq
+curl -s http://0.0.0.0:5000
 ```
