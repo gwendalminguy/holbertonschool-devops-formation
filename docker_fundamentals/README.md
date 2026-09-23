@@ -1,6 +1,6 @@
 ## Docker Fundamentals
 
-This project is about learning Docker fundamentals.
+This project is about learning **Docker** fundamentals.
 
 * [0-first_container.md](https://github.com/gwendalminguy/holbertonschool-devops-formation/tree/main/docker_fundamentals/0-first_container.md)
 
