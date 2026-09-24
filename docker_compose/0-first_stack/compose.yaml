@@ -1,0 +1,39 @@
+name: holberton
+
+services:
+  db:
+    image: postgres:16
+    container_name: holberton_db
+    restart: always
+    environment:
+      POSTGRES_USER: holberton
+      POSTGRES_PASSWORD: holberton
+      POSTGRES_DB: holberton
+    networks:
+      - holberton_net
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: holberton_backend
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - holberton_net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: holberton_frontend
+    restart: always
+    ports:
+      - "5050:80"
+    networks:
+      - holberton_net
+
+networks:
+  holberton_net:
+    name: holberton_net
