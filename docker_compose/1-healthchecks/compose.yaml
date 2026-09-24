@@ -1,0 +1,49 @@
+name: holberton
+
+services:
+  db:
+    image: postgres:16
+    container_name: holberton_db
+    restart: always
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "holberton"]
+      interval: 3s
+      timeout: 3s
+      retries: 3
+    environment:
+      POSTGRES_USER: holberton
+      POSTGRES_PASSWORD: holberton
+      POSTGRES_DB: holberton
+    networks:
+      - holberton_net
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: holberton_backend
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - holberton_net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: holberton_frontend
+    restart: always
+    ports:
+      - "5050:80"
+    depends_on:
+      - backend
+    networks:
+      - holberton_net
+
+networks:
+  holberton_net:
+    name: holberton_net
