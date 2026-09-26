@@ -6,6 +6,8 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
+    environment:
+      POSTGRES_PASSWORD: holberton
 
   cache:
     image: redis:7-alpine
@@ -13,11 +15,11 @@ services:
   web:
     image: nginx:alpine
     ports:
-      - "8080:80"
+      - "5050:80"
 
   api:
     image: nginx:alpine
     ports:
       - "8080:8080"
     depends_on:
-      - databse
+      - db
